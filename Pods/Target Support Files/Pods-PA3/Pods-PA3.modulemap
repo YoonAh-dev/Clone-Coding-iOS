@@ -1,0 +1,6 @@
+framework module Pods_PA3 {
+  umbrella header "Pods-PA3-umbrella.h"
+
+  export *
+  module * { export * }
+}
