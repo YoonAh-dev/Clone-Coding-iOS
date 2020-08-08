@@ -15,6 +15,7 @@
 		ED6DA2D224D3F0C200E0B018 /* MailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6DA2D124D3F0C200E0B018 /* MailListViewController.swift */; };
 		ED6DA2D424D3F1D400E0B018 /* MailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6DA2D324D3F1D400E0B018 /* MailTableViewCell.swift */; };
 		ED6DA2D724D3F9C100E0B018 /* MailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6DA2D624D3F9C100E0B018 /* MailInfo.swift */; };
+		ED6DA2DB24D6B2A200E0B018 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6DA2DA24D6B2A200E0B018 /* UIColor+Extension.swift */; };
 		EDD3D50724CD438500EB4D97 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3D50624CD438500EB4D97 /* FriendListViewController.swift */; };
 		EDD3D50A24CD4B5900EB4D97 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3D50924CD4B5900EB4D97 /* UserInfo.swift */; };
 		EDD3D50E24CD543900EB4D97 /* FriendProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3D50D24CD543900EB4D97 /* FriendProfileTableViewCell.swift */; };
@@ -35,6 +36,7 @@
 		ED6DA2D124D3F0C200E0B018 /* MailListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListViewController.swift; sourceTree = "<group>"; };
 		ED6DA2D324D3F1D400E0B018 /* MailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailTableViewCell.swift; sourceTree = "<group>"; };
 		ED6DA2D624D3F9C100E0B018 /* MailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailInfo.swift; sourceTree = "<group>"; };
+		ED6DA2DA24D6B2A200E0B018 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		EDD3D50624CD438500EB4D97 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		EDD3D50924CD4B5900EB4D97 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		EDD3D50D24CD543900EB4D97 /* FriendProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				EDD3D51024CD6E6900EB4D97 /* UIFont+Extension.swift */,
+				ED6DA2DA24D6B2A200E0B018 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				EDD3D51124CD6E6900EB4D97 /* UIFont+Extension.swift in Sources */,
 				EDD3D50724CD438500EB4D97 /* FriendListViewController.swift in Sources */,
 				ED3937A624CADB46008CD69B /* ViewController.swift in Sources */,
+				ED6DA2DB24D6B2A200E0B018 /* UIColor+Extension.swift in Sources */,
 				EDD3D50E24CD543900EB4D97 /* FriendProfileTableViewCell.swift in Sources */,
 				EDDA815224CAEB0D00C923A8 /* LoginStatusViewController.swift in Sources */,
 				ED6DA2D224D3F0C200E0B018 /* MailListViewController.swift in Sources */,

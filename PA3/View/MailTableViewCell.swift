@@ -29,7 +29,7 @@ class MailTableViewCell : UITableViewCell {
     
     func setUp(){
         contentView.addSubview(profileImageButton)
-        profileImageButton.backgroundColor = getRandomColor()
+        profileImageButton.backgroundColor = UIColor.getRandomColor
         profileImageButton.layer.cornerRadius = 20
         profileImageButton.layer.masksToBounds = true
         profileImageButton.setTitleColor(.white, for: .normal)
@@ -103,6 +103,9 @@ class MailTableViewCell : UITableViewCell {
         if let first = mailInfo.title.first{
             profileImageButton.setTitle(String(first) , for: .normal)
         }
+        else {
+            profileImageButton.setTitle("", for: .normal)
+        }
         
         if mailInfo.isRead == true {
             senderNameLabel.textColor = UIColor.gray
@@ -119,13 +122,5 @@ class MailTableViewCell : UITableViewCell {
             // 재사용되기 때문에 꼭 isHidden 풀어주기
             documentButton.isHidden = false
         }
-    }
-    
-    func getRandomColor() -> UIColor{
-            let randomRed:CGFloat = CGFloat(drand48())
-            let randomGreen:CGFloat = CGFloat(drand48())
-            let randomBlue:CGFloat = CGFloat(drand48())
-            
-            return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
     }
 }
