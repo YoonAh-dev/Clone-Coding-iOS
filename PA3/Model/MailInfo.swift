@@ -34,6 +34,7 @@ extension MailInfo {
         MailInfo(title: "Google Play", content: "감사합니다 Google Play의 Kakao Corp.에서 구매하셨습니다. 주문 번호: GPA.3386-2875-2147-65283 주문 날짜: 2020. 6. 29. 오후 5시 1분 13초 GMT+9", documents: "주문 영수증", isRead: true),
         MailInfo(title: "YouTube <noreply-purchases@youtube.com>", content: "윤아님, 안녕하세요. YouTube Premium 멤버십의 최근 결제를 완료하지 못했습니다. 며칠 내에 다시 청구될 예정이지만 결제가 완료되지 않으면 YouTube Premium를 더 이상 이용할 수 없게 됩니다. 지금 결제 수단 업데이트", documents: nil),
         MailInfo(title: "YouTube", content: "윤아님, 안녕하세요. YouTube Premium 멤버십의 최근 결제를 완료하지 못했습니다. 며칠 내에 다시 청구될 예정이지만 결제가 완료되지 않으면 YouTube Premium를 더 이상 이용할 수 없게 됩니다. 지금 결제 수단 업데이트", documents: "membership"),
+        MailInfo(title: "무신사", content: "무신사 20% 할인 쿠폰 지급", documents: nil),
         MailInfo(title: "무신사", content: "무신사 20% 할인 쿠폰 지급", documents: nil)
     ]
 }
