@@ -14,6 +14,7 @@ class FriendProfileTableViewCell : UITableViewCell {
     private var musicButton = UIButton()
     private let userNameLabel = UILabel()
     private let statusMessageLabel = UILabel()
+    private let stackView = UIStackView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,8 +27,14 @@ class FriendProfileTableViewCell : UITableViewCell {
     }
     
     private func setUp(){
-        // cell에다가 UI컴포넌트 추가(addSubview)해줄때는 cell의 contentView에 추가해야한다.
         contentView.addSubview(profileImageButton)
+        contentView.addSubview(userNameLabel)
+        contentView.addSubview(statusMessageLabel)
+        contentView.addSubview(stackView)
+        stackView.addArrangedSubview(userNameLabel)
+        stackView.addArrangedSubview(statusMessageLabel)
+        contentView.addSubview(musicButton)
+        
         profileImageButton.layer.cornerRadius = 15
         profileImageButton.layer.masksToBounds = true
         profileImageButton.snp.makeConstraints{ make in
@@ -35,15 +42,11 @@ class FriendProfileTableViewCell : UITableViewCell {
             make.size.equalTo(40)
         }
         
-        contentView.addSubview(userNameLabel)
         userNameLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
         
-        contentView.addSubview(statusMessageLabel)
         statusMessageLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 14)
         statusMessageLabel.textColor = UIColor.black.withAlphaComponent(0.5)
         
-        let stackView = UIStackView()
-        contentView.addSubview(stackView)
         stackView.axis = .vertical
         stackView.spacing = 5
         stackView.snp.makeConstraints{ make in
@@ -52,10 +55,6 @@ class FriendProfileTableViewCell : UITableViewCell {
             make.width.lessThanOrEqualTo(UIScreen.main.bounds.width/2)
         }
         
-        stackView.addArrangedSubview(userNameLabel)
-        stackView.addArrangedSubview(statusMessageLabel)
-        
-        contentView.addSubview(musicButton)
         musicButton.layer.cornerRadius = 10
         musicButton.layer.masksToBounds = true
         musicButton.backgroundColor = .white
@@ -70,7 +69,6 @@ class FriendProfileTableViewCell : UITableViewCell {
             make.centerY.equalToSuperview()
             make.leading.equalTo(stackView.snp.trailing).offset(10).priority(.medium)
             make.width.lessThanOrEqualTo(UIScreen.main.bounds.width/3)
-            
         }
     }
     
@@ -85,9 +83,7 @@ class FriendProfileTableViewCell : UITableViewCell {
             musicButton.isHidden = true
         } else {
             musicButton.setTitle(userInfo.profileMusic, for: .normal)
-            // 재사용되기 때문에 꼭 isHidden 풀어주기
             musicButton.isHidden = false
         }
-        
     }
 }

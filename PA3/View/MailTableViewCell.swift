@@ -12,10 +12,11 @@ import SnapKit
 class MailTableViewCell : UITableViewCell {
     private var profileImageButton = UIButton()
     private var bookMarkButton = UIButton()
-    private let senderNameLabel = UILabel()
-    private let messageContentsLabel = UILabel()
     private let documentButton = UIButton()
+    private let senderNameLabel = UILabel()
+    private let messageContentLabel = UILabel()
     private let stackView = UIStackView()
+    private let containerView = UIView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,39 +30,46 @@ class MailTableViewCell : UITableViewCell {
     
     func setUp(){
         contentView.addSubview(profileImageButton)
-        profileImageButton.backgroundColor = getRandomColor()
+        contentView.addSubview(senderNameLabel)
+        contentView.addSubview(messageContentLabel)
+        contentView.addSubview(stackView)
+        stackView.addArrangedSubview(senderNameLabel)
+        stackView.addArrangedSubview(messageContentLabel)
+        stackView.addArrangedSubview(containerView)
+        containerView.addSubview(documentButton)
+        contentView.addSubview(bookMarkButton)
+        
+        profileImageButton.backgroundColor = UIColor.getRandomColor
         profileImageButton.layer.cornerRadius = 20
         profileImageButton.layer.masksToBounds = true
         profileImageButton.setTitleColor(.white, for: .normal)
         profileImageButton.snp.makeConstraints{ make in
-            make.top.equalToSuperview().inset(5)
+            make.top.equalToSuperview().inset(10)
             make.leading.equalToSuperview().inset(10)
             make.size.equalTo(40)
         }
         
-        contentView.addSubview(stackView)
+        senderNameLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        messageContentLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        messageContentLabel.numberOfLines = 2
+        messageContentLabel.textAlignment = .left
+        messageContentLabel.sizeToFit()
+        messageContentLabel.textColor = UIColor.gray
+        
         stackView.axis = .vertical
         stackView.spacing = 5
         stackView.snp.makeConstraints{ make in
-            make.top.equalToSuperview().inset(5)
+            make.top.equalToSuperview().inset(10)
             make.width.equalTo(UIScreen.main.bounds.width/1.35)
-            make.leading.equalTo(profileImageButton.snp.trailing).offset(15)
+            make.leading.equalTo(profileImageButton.snp.trailing)
+            make.bottom.equalToSuperview().inset(20)
         }
         
-        contentView.addSubview(senderNameLabel)
-        senderNameLabel.font = UIFont.boldSystemFont(ofSize: 16)
-        
-        contentView.addSubview(messageContentsLabel)
-        messageContentsLabel.font = UIFont.boldSystemFont(ofSize: 14)
-        messageContentsLabel.numberOfLines = 2
-        messageContentsLabel.textAlignment = .left
-        messageContentsLabel.sizeToFit()
-        messageContentsLabel.textColor = UIColor.gray
-        
-        stackView.addArrangedSubview(senderNameLabel)
-        stackView.addArrangedSubview(messageContentsLabel)
-        
-        contentView.addSubview(documentButton)
+        containerView.snp.makeConstraints{ make in
+            make.leading.equalToSuperview().inset(10)
+        }
+
         documentButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         documentButton.setTitleColor(.gray, for: .normal)
         documentButton.layer.borderColor = UIColor.lightGray.cgColor
@@ -72,10 +80,10 @@ class MailTableViewCell : UITableViewCell {
         documentButton.titleLabel?.lineBreakMode = .byTruncatingTail
         documentButton.setContentHuggingPriority(.required, for: .horizontal)
         documentButton.snp.makeConstraints{ make in
+            make.leading.equalToSuperview()
             make.width.lessThanOrEqualTo(UIScreen.main.bounds.width/2.5)
         }
         
-        contentView.addSubview(bookMarkButton)
         bookMarkButton.setImage(UIImage(named: "star"), for: .normal)
         bookMarkButton.alpha = 0.5
         bookMarkButton.snp.makeConstraints{ make in
@@ -84,48 +92,28 @@ class MailTableViewCell : UITableViewCell {
             make.leading.equalTo(stackView.snp.trailing).offset(3).priority(.medium)
             make.size.equalTo(18)
         }
-        
-        let docStackView = UIStackView()
-        contentView.addSubview(docStackView)
-        docStackView.axis = .vertical
-        docStackView.spacing = 5
-        docStackView.snp.makeConstraints{ make in
-            make.top.equalTo(stackView.snp.bottom).offset(7)
-            make.width.equalTo(UIScreen.main.bounds.width/4).priority(.medium)
-            make.leading.equalToSuperview().inset(66)
-            make.bottom.equalToSuperview().inset(10)
-        }
-        
-        docStackView.addArrangedSubview(documentButton)
     }
     
     func configure(mailInfo: MailInfo){
         if let first = mailInfo.title.first{
             profileImageButton.setTitle(String(first) , for: .normal)
+        } else {
+            profileImageButton.setTitle("", for: .normal)
         }
         
+        senderNameLabel.text = mailInfo.title
         if mailInfo.isRead == true {
             senderNameLabel.textColor = UIColor.gray
             bookMarkButton.imageView?.alpha = 0.5
         }
-        senderNameLabel.text = mailInfo.title
         
-        messageContentsLabel.text = mailInfo.content
+        messageContentLabel.text = mailInfo.content
         
         if mailInfo.documents == nil {
-            documentButton.isHidden = true
+            containerView.isHidden = true
         } else {
             documentButton.setTitle(mailInfo.documents, for: .normal)
-            // 재사용되기 때문에 꼭 isHidden 풀어주기
-            documentButton.isHidden = false
+            containerView.isHidden = false
         }
-    }
-    
-    func getRandomColor() -> UIColor{
-            let randomRed:CGFloat = CGFloat(drand48())
-            let randomGreen:CGFloat = CGFloat(drand48())
-            let randomBlue:CGFloat = CGFloat(drand48())
-            
-            return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
     }
 }
