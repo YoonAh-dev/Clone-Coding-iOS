@@ -38,7 +38,6 @@ class MailTableViewCell : UITableViewCell {
         stackView.addArrangedSubview(containerView)
         containerView.addSubview(documentButton)
         contentView.addSubview(bookMarkButton)
-
         
         profileImageButton.backgroundColor = UIColor.getRandomColor
         profileImageButton.layer.cornerRadius = 20
