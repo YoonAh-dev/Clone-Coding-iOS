@@ -97,8 +97,7 @@ class MailTableViewCell : UITableViewCell {
     func configure(mailInfo: MailInfo){
         if let first = mailInfo.title.first{
             profileImageButton.setTitle(String(first) , for: .normal)
-        }
-        else {
+        } else {
             profileImageButton.setTitle("", for: .normal)
         }
         

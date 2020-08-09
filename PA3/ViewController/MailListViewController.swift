@@ -27,9 +27,12 @@ class MailListViewController : UIViewController {
     }
     
     func setUp(){
+        view.addSubview(mailHeaderLabel)
+        view.addSubview(friendListButton)
+        view.addSubview(mailTableView)
+        
         view.backgroundColor = .white
         
-        view.addSubview(mailHeaderLabel)
         mailHeaderLabel.text = "메일함"
         mailHeaderLabel.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         mailHeaderLabel.snp.makeConstraints{ make in
@@ -37,7 +40,6 @@ class MailListViewController : UIViewController {
             make.top.equalToSuperview().inset(70)
         }
         
-        view.addSubview(friendListButton)
         friendListButton.addTarget(self, action: #selector(didTapFriendButton), for: .touchUpInside)
         friendListButton.setTitle("👤", for: .normal)
         friendListButton.titleLabel?.font = UIFont.systemFont(ofSize: 30)
@@ -46,7 +48,6 @@ class MailListViewController : UIViewController {
             make.top.equalToSuperview().inset(70)
         }
         
-        view.addSubview(mailTableView)
         mailTableView.register(MailTableViewCell.self, forCellReuseIdentifier: "MailTableViewCell")
         mailTableView.separatorColor = .clear
         mailTableView.snp.makeConstraints{ make in

@@ -28,6 +28,13 @@ class FriendProfileTableViewCell : UITableViewCell {
     
     private func setUp(){
         contentView.addSubview(profileImageButton)
+        contentView.addSubview(userNameLabel)
+        contentView.addSubview(statusMessageLabel)
+        contentView.addSubview(stackView)
+        stackView.addArrangedSubview(userNameLabel)
+        stackView.addArrangedSubview(statusMessageLabel)
+        contentView.addSubview(musicButton)
+        
         profileImageButton.layer.cornerRadius = 15
         profileImageButton.layer.masksToBounds = true
         profileImageButton.snp.makeConstraints{ make in
@@ -35,14 +42,11 @@ class FriendProfileTableViewCell : UITableViewCell {
             make.size.equalTo(40)
         }
         
-        contentView.addSubview(userNameLabel)
         userNameLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
         
-        contentView.addSubview(statusMessageLabel)
         statusMessageLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 14)
         statusMessageLabel.textColor = UIColor.black.withAlphaComponent(0.5)
         
-        contentView.addSubview(stackView)
         stackView.axis = .vertical
         stackView.spacing = 5
         stackView.snp.makeConstraints{ make in
@@ -51,10 +55,6 @@ class FriendProfileTableViewCell : UITableViewCell {
             make.width.lessThanOrEqualTo(UIScreen.main.bounds.width/2)
         }
         
-        stackView.addArrangedSubview(userNameLabel)
-        stackView.addArrangedSubview(statusMessageLabel)
-        
-        contentView.addSubview(musicButton)
         musicButton.layer.cornerRadius = 10
         musicButton.layer.masksToBounds = true
         musicButton.backgroundColor = .white
