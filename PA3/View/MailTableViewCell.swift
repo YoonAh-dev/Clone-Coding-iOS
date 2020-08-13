@@ -28,7 +28,7 @@ class MailTableViewCell : UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUp(){
+    private func setUp(){
         contentView.addSubview(profileImageButton)
         contentView.addSubview(senderNameLabel)
         contentView.addSubview(messageContentLabel)
@@ -49,9 +49,9 @@ class MailTableViewCell : UITableViewCell {
             make.size.equalTo(40)
         }
         
-        senderNameLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        senderNameLabel.font = UIFont.defaultXLargeBold
         
-        messageContentLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        messageContentLabel.font = UIFont.defaultLargeBold
         messageContentLabel.numberOfLines = 2
         messageContentLabel.textAlignment = .left
         messageContentLabel.sizeToFit()
@@ -70,7 +70,7 @@ class MailTableViewCell : UITableViewCell {
             make.leading.equalToSuperview().inset(10)
         }
 
-        documentButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        documentButton.titleLabel?.font = UIFont.defaultLargeBold
         documentButton.setTitleColor(.gray, for: .normal)
         documentButton.layer.borderColor = UIColor.lightGray.cgColor
         documentButton.layer.borderWidth = 1

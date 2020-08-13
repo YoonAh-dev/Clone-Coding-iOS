@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6A2014AD76CE20B673543EC3 /* Pods_PA3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29BA05622BEA3E2313802D36 /* Pods_PA3.framework */; };
+		ED0F9FFB24E4F8FC00DF50BE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0F9FFA24E4F8FC00DF50BE /* ProfileViewController.swift */; };
+		ED0F9FFD24E4FC9300DF50BE /* EditStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0F9FFC24E4FC9300DF50BE /* EditStatusViewController.swift */; };
 		ED3937A224CADB46008CD69B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3937A124CADB46008CD69B /* AppDelegate.swift */; };
 		ED3937A624CADB46008CD69B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3937A524CADB46008CD69B /* ViewController.swift */; };
 		ED3937AB24CADB49008CD69B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3937AA24CADB49008CD69B /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 		29BA05622BEA3E2313802D36 /* Pods_PA3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PA3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91010A8B9D343752C4ECDA00 /* Pods-PA3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PA3.debug.xcconfig"; path = "Target Support Files/Pods-PA3/Pods-PA3.debug.xcconfig"; sourceTree = "<group>"; };
 		E0D01148A33F3F43CA347557 /* Pods-PA3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PA3.release.xcconfig"; path = "Target Support Files/Pods-PA3/Pods-PA3.release.xcconfig"; sourceTree = "<group>"; };
+		ED0F9FFA24E4F8FC00DF50BE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		ED0F9FFC24E4FC9300DF50BE /* EditStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStatusViewController.swift; sourceTree = "<group>"; };
 		ED39379E24CADB46008CD69B /* PA3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PA3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3937A124CADB46008CD69B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED3937A524CADB46008CD69B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 				ED3937A524CADB46008CD69B /* ViewController.swift */,
 				EDD3D50624CD438500EB4D97 /* FriendListViewController.swift */,
 				ED6DA2D124D3F0C200E0B018 /* MailListViewController.swift */,
+				ED0F9FFA24E4F8FC00DF50BE /* ProfileViewController.swift */,
+				ED0F9FFC24E4FC9300DF50BE /* EditStatusViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -262,8 +268,10 @@
 				EDD3D50724CD438500EB4D97 /* FriendListViewController.swift in Sources */,
 				ED3937A624CADB46008CD69B /* ViewController.swift in Sources */,
 				ED6DA2DB24D6B2A200E0B018 /* UIColor+Extension.swift in Sources */,
+				ED0F9FFD24E4FC9300DF50BE /* EditStatusViewController.swift in Sources */,
 				EDD3D50E24CD543900EB4D97 /* FriendProfileTableViewCell.swift in Sources */,
 				EDDA815224CAEB0D00C923A8 /* LoginStatusViewController.swift in Sources */,
+				ED0F9FFB24E4F8FC00DF50BE /* ProfileViewController.swift in Sources */,
 				ED6DA2D224D3F0C200E0B018 /* MailListViewController.swift in Sources */,
 				ED6DA2D724D3F9C100E0B018 /* MailInfo.swift in Sources */,
 				EDD3D50A24CD4B5900EB4D97 /* UserInfo.swift in Sources */,
