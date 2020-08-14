@@ -71,12 +71,13 @@ class ViewController: UIViewController {
     }
     
     @objc fileprivate func didClickLogin(sender: UIButton){
-        self.animateLabelView(sender)
+        self.labelsMoveAnimator(sender)
         
         let vc = LoginStatusViewController()
         vc.modalPresentationStyle = .fullScreen
-        vc.saveIDPW = {text in
-            self.animateLabelBackView()
+        vc.editCompleteLoginLabel = { text in
+            self.labelsMoveBackAnimator()
+            
             self.view.addSubview(self.completeLoginLabel)
             self.completeLoginLabel.text = text + "님 안녕하세요.🙋🏼‍♀️"
             self.completeLoginLabel.textAlignment = .center
@@ -90,7 +91,7 @@ class ViewController: UIViewController {
         present(vc, animated: true)
     }
     
-    fileprivate func animateLabelView(_ viewToAnimate: UIView){
+    fileprivate func labelsMoveAnimator(_ viewToAnimate: UIView){
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
             self.emojiLabel.alpha = 0
             self.emojiLabel.transform = self.emojiLabel.transform.translatedBy(x: 0, y: -200)
@@ -108,7 +109,7 @@ class ViewController: UIViewController {
         }
     }
     
-    fileprivate func animateLabelBackView(){
+    fileprivate func labelsMoveBackAnimator(){
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseIn, animations: {
             self.emojiLabel.alpha = 1
             self.emojiLabel.text = "🧑‍🚀"

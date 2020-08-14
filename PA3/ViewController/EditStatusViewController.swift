@@ -10,11 +10,11 @@ import UIKit
 import SnapKit
 
 class EditStatusViewController : UIViewController, UITextFieldDelegate{
-    var okButton = UIButton()
-    var cancelButton = UIButton()
-    var textFieldCountLabel = UILabel()
-    var nameLabel = UILabel()
-    var userTextField = UITextField()
+    private var okButton = UIButton()
+    private var cancelButton = UIButton()
+    private var textFieldCountLabel = UILabel()
+    private var nameLabel = UILabel()
+    private var userTextField = UITextField()
     
     var editNameLable: ((String) -> ())?
     

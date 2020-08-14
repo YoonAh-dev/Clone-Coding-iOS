@@ -19,7 +19,7 @@ class LoginStatusViewController : UIViewController, UITextFieldDelegate{
     var pwTextfield = UITextField()
     let stackView = UIStackView()
     
-    var saveIDPW: ((String) -> ())?
+    var editCompleteLoginLabel: ((String) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,7 +152,7 @@ class LoginStatusViewController : UIViewController, UITextFieldDelegate{
         loginButtonClicked(sender: sender)
         
         let saveIDMessage = self.idTextfield.text ?? ""
-        self.saveIDPW?(saveIDMessage)
+        self.editCompleteLoginLabel?(saveIDMessage)
         
         self.dismiss(animated: true, completion: nil)
     }

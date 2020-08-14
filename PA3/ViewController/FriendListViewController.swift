@@ -10,9 +10,9 @@ import UIKit
 import SnapKit
 
 class FriendListViewController : UIViewController {
-    var friendTableView: UITableView = UITableView()
-    let mailViewButton = UIButton()
-    let friendHeaderLabel = UILabel()
+    private var friendTableView: UITableView = UITableView()
+    private let mailViewButton = UIButton()
+    private let friendHeaderLabel = UILabel()
     
     var testData: [UserInfo] = UserInfo.friendInfo
     
