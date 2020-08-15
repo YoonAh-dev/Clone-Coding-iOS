@@ -12,7 +12,7 @@ import SnapKit
 class ProfileViewController : UIViewController {
     var backgroundImageView = UIImageView()
     var profileImageButton = UIButton()
-    var disableImageButton = UIButton()
+    var disableImageButton = UIButton(type: .close)
     var musicButton = UIButton()
     var userNameLabel = UILabel()
     var userStatusLabel = UILabel()
@@ -90,7 +90,6 @@ class ProfileViewController : UIViewController {
             make.size.equalTo(100)
         }
         
-        disableImageButton.setTitle("❌", for: .normal)
         disableImageButton.addTarget(self, action: #selector(didTapxIcon), for: .touchUpInside)
         disableImageButton.snp.makeConstraints{ make in
             make.centerX.equalToSuperview()
