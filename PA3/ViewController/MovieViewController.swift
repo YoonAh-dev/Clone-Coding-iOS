@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 import Alamofire
 
 class MovieViewController: UIViewController {

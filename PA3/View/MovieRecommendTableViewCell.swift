@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class MovieRecommendTableViewCell: UITableViewCell {
     private var posterImage = UIImageView()
