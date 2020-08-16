@@ -19,8 +19,6 @@ class MovieRecommendViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.movieTableView.backgroundColor = .black
                 
         movieTableView.delegate = self
         movieTableView.dataSource = self
@@ -28,12 +26,13 @@ class MovieRecommendViewController: UIViewController {
         setUp()
     }
     
-    private func setUp(){
+    private func setUp() {
         view.backgroundColor = .black
         
         view.addSubview(movieTableView)
         view.addSubview(dismissButton)
         
+        movieTableView.backgroundColor = .black
         movieTableView.register(MovieRecommendTableViewCell.self, forCellReuseIdentifier: "MovieRecommendTableViewCell")
         movieTableView.register(MovieHeaderView.self, forHeaderFooterViewReuseIdentifier: "MovieHeaderView")
         movieTableView.snp.makeConstraints{  make in
@@ -70,7 +69,7 @@ class MovieRecommendViewController: UIViewController {
 
 extension MovieRecommendViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        movieData.count
+        return movieData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

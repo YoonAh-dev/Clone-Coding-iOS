@@ -26,7 +26,7 @@ class MovieTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUp(){
+    private func setUp() {
         contentView.backgroundColor = .black
         
         contentView.addSubview(posterImage)
@@ -57,7 +57,7 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(movieInfo: Movie){
+    func configure(movieInfo: Movie) {
         let string = "https://image.tmdb.org/t/p/w500/\(movieInfo.posterPath)"
         let url = URL(string: string)!
         posterImage.kf.setImage(with: url)

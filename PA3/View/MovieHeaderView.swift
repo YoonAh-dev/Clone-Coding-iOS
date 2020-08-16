@@ -11,12 +11,12 @@ import SnapKit
 import Kingfisher
 
 class MovieHeaderView: UITableViewHeaderFooterView {
+    private let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     private let headerImage = UIImageView()
     private let headerBackgroundImage = UIImageView()
     private let movieplayButton = UIButton()
     private let titleLabel = UILabel()
     private let overviewLabel = UILabel()
-    private let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -28,20 +28,20 @@ class MovieHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUp(){
+    private func setUp() {
         contentView.addSubview(headerBackgroundImage)
+        headerBackgroundImage.addSubview(blurEffectView)
         contentView.addSubview(headerImage)
         contentView.addSubview(titleLabel)
         contentView.addSubview(overviewLabel)
         contentView.addSubview(movieplayButton)
-        headerBackgroundImage.addSubview(blurEffectView)
-        
-        blurEffectView.frame = headerBackgroundImage.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         headerBackgroundImage.snp.makeConstraints{ make in
             make.edges.equalToSuperview()
         }
+        
+        blurEffectView.frame = headerBackgroundImage.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         headerImage.snp.makeConstraints{ make in
             make.size.equalTo(200)

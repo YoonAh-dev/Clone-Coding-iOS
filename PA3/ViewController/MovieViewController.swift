@@ -17,8 +17,6 @@ class MovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.movieTableView.backgroundColor = .black
-        
         movieTableView.delegate = self
         movieTableView.dataSource = self
         
@@ -30,6 +28,7 @@ class MovieViewController: UIViewController {
     private func setUp() {
         view.addSubview(movieTableView)
         
+        movieTableView.backgroundColor = .black
         movieTableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "MovieTableViewCell")
         movieTableView.snp.makeConstraints{  make in
             make.edges.equalToSuperview()
@@ -52,7 +51,6 @@ class MovieViewController: UIViewController {
 
 extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(movieData.count)
         return movieData.count
     }
     
