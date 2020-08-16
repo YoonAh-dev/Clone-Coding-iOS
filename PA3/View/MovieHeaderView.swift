@@ -12,8 +12,11 @@ import Kingfisher
 
 class MovieHeaderView: UITableViewHeaderFooterView {
     private let headerImage = UIImageView()
+    private let headerBackgroundImage = UIImageView()
+    private let movieplayButton = UIButton()
     private let titleLabel = UILabel()
     private let overviewLabel = UILabel()
+    private let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -26,15 +29,24 @@ class MovieHeaderView: UITableViewHeaderFooterView {
     }
     
     private func setUp(){
-        contentView.backgroundColor = .black
-
+        contentView.addSubview(headerBackgroundImage)
         contentView.addSubview(headerImage)
         contentView.addSubview(titleLabel)
         contentView.addSubview(overviewLabel)
+        contentView.addSubview(movieplayButton)
+        headerBackgroundImage.addSubview(blurEffectView)
+        
+        blurEffectView.frame = headerBackgroundImage.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        headerBackgroundImage.snp.makeConstraints{ make in
+            make.edges.equalToSuperview()
+        }
         
         headerImage.snp.makeConstraints{ make in
             make.size.equalTo(200)
             make.centerX.equalToSuperview()
+            make.top.equalTo(contentView.safeAreaLayoutGuide).inset(10)
         }
         
         titleLabel.font = UIFont.defaultXXLargeBold
@@ -52,7 +64,19 @@ class MovieHeaderView: UITableViewHeaderFooterView {
         overviewLabel.snp.makeConstraints{ make in
             make.leading.trailing.equalToSuperview().inset(10)
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
+        }
+        
+        movieplayButton.setTitle("▶︎ 재생", for: .normal)
+        movieplayButton.titleLabel?.font = UIFont.defaultLargeBold
+        movieplayButton.titleLabel?.textColor = .white
+        movieplayButton.backgroundColor = .red
+        movieplayButton.layer.cornerRadius = 10
+        movieplayButton.layer.masksToBounds = true
+        movieplayButton.snp.makeConstraints{ make in
+            make.leading.trailing.equalToSuperview().inset(10)
+            make.top.equalTo(overviewLabel.snp.bottom).offset(15)
             make.bottom.equalToSuperview().inset(20)
+            make.height.equalTo(30)
         }
     }
     
@@ -60,6 +84,7 @@ class MovieHeaderView: UITableViewHeaderFooterView {
         let string = "https://image.tmdb.org/t/p/w500/\(movieInfo.posterPath)"
         let url = URL(string: string)!
         headerImage.kf.setImage(with: url)
+        headerBackgroundImage.kf.setImage(with: url)
         
         titleLabel.text = movieInfo.title
         

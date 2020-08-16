@@ -38,7 +38,7 @@ class MovieRecommendViewController: UIViewController {
         movieTableView.register(MovieHeaderView.self, forHeaderFooterViewReuseIdentifier: "MovieHeaderView")
         movieTableView.snp.makeConstraints{  make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalToSuperview()
         }
         
         dismissButton.addTarget(self, action: #selector(didTapDismissButton), for: .touchUpInside)
@@ -89,6 +89,6 @@ extension MovieRecommendViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 360
+        return 420
     }
 }
