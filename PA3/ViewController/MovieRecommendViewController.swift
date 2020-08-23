@@ -34,7 +34,7 @@ class MovieRecommendViewController: UIViewController {
         
         movieTableView.backgroundColor = .black
         movieTableView.register(MovieRecommendTableViewCell.self, forCellReuseIdentifier: "MovieRecommendTableViewCell")
-        movieTableView.register(MovieHeaderView.self, forHeaderFooterViewReuseIdentifier: "MovieHeaderView")
+        movieTableView.register(MovieRecommendTableHeaderView.self, forHeaderFooterViewReuseIdentifier: "MovieRecommendTableHeaderView")
         movieTableView.snp.makeConstraints{  make in
             make.leading.trailing.bottom.equalToSuperview()
             make.top.equalToSuperview()
@@ -81,7 +81,7 @@ extension MovieRecommendViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-                    "MovieHeaderView") as! MovieHeaderView
+                    "MovieRecommendTableHeaderView") as! MovieRecommendTableHeaderView
         view.configure(movieInfo: prevMovieData[0])
         
         return view

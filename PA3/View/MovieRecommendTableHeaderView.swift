@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class MovieHeaderView: UITableViewHeaderFooterView {
+class MovieRecommendTableHeaderView: UITableViewHeaderFooterView {
     private let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     private let headerImage = UIImageView()
     private let headerBackgroundImage = UIImageView()

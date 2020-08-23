@@ -23,7 +23,7 @@
 		EDAA463D24E8F9CB007A74F6 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA463C24E8F9CB007A74F6 /* MovieTableViewCell.swift */; };
 		EDAA463F24E907FF007A74F6 /* MovieRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA463E24E907FF007A74F6 /* MovieRecommendViewController.swift */; };
 		EDAA464124E90AFE007A74F6 /* MovieRecommendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA464024E90AFE007A74F6 /* MovieRecommendTableViewCell.swift */; };
-		EDAA464324E917CF007A74F6 /* MovieHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA464224E917CF007A74F6 /* MovieHeaderView.swift */; };
+		EDAA464324E917CF007A74F6 /* MovieRecommendTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA464224E917CF007A74F6 /* MovieRecommendTableHeaderView.swift */; };
 		EDD3D50724CD438500EB4D97 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3D50624CD438500EB4D97 /* FriendListViewController.swift */; };
 		EDD3D50A24CD4B5900EB4D97 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3D50924CD4B5900EB4D97 /* UserInfo.swift */; };
 		EDD3D50E24CD543900EB4D97 /* FriendProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3D50D24CD543900EB4D97 /* FriendProfileTableViewCell.swift */; };
@@ -52,7 +52,7 @@
 		EDAA463C24E8F9CB007A74F6 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		EDAA463E24E907FF007A74F6 /* MovieRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRecommendViewController.swift; sourceTree = "<group>"; };
 		EDAA464024E90AFE007A74F6 /* MovieRecommendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRecommendTableViewCell.swift; sourceTree = "<group>"; };
-		EDAA464224E917CF007A74F6 /* MovieHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHeaderView.swift; sourceTree = "<group>"; };
+		EDAA464224E917CF007A74F6 /* MovieRecommendTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRecommendTableHeaderView.swift; sourceTree = "<group>"; };
 		EDD3D50624CD438500EB4D97 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		EDD3D50924CD4B5900EB4D97 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		EDD3D50D24CD543900EB4D97 /* FriendProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 				ED6DA2D324D3F1D400E0B018 /* MailTableViewCell.swift */,
 				EDAA463C24E8F9CB007A74F6 /* MovieTableViewCell.swift */,
 				EDAA464024E90AFE007A74F6 /* MovieRecommendTableViewCell.swift */,
-				EDAA464224E917CF007A74F6 /* MovieHeaderView.swift */,
+				EDAA464224E917CF007A74F6 /* MovieRecommendTableHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,7 +287,7 @@
 				EDD3D51124CD6E6900EB4D97 /* UIFont+Extension.swift in Sources */,
 				EDAA463924E8EB42007A74F6 /* MovieViewController.swift in Sources */,
 				EDD3D50724CD438500EB4D97 /* FriendListViewController.swift in Sources */,
-				EDAA464324E917CF007A74F6 /* MovieHeaderView.swift in Sources */,
+				EDAA464324E917CF007A74F6 /* MovieRecommendTableHeaderView.swift in Sources */,
 				ED3937A624CADB46008CD69B /* ViewController.swift in Sources */,
 				ED6DA2DB24D6B2A200E0B018 /* UIColor+Extension.swift in Sources */,
 				ED0F9FFD24E4FC9300DF50BE /* EditStatusViewController.swift in Sources */,
