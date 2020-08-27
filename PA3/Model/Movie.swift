@@ -14,10 +14,10 @@ struct MovieResponse: Decodable {
 }
 
 struct Movie: Decodable {
-    var id: Int
-    var title: String
-    var posterPath: String
-    var overview: String
+    var id: Int?
+    var title: String?
+    var posterPath: String?
+    var overview: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"

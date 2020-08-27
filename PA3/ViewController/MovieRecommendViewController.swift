@@ -51,7 +51,10 @@ class MovieRecommendViewController: UIViewController {
     func fetchSimilarMovieInfo(movieInfo: Movie) {
         loadingIndicator.startAnimating()
         
-        let url = URL(string: "https://api.themoviedb.org/3/movie/\(movieInfo.id)/similar?api_key=b2289ad94f1bf785bc9d2e08e468e7ef")!
+        guard let movieId = movieInfo.id else {
+            return
+        }
+        let url = URL(string: "https://api.themoviedb.org/3/movie/\(movieId)/similar?api_key=b2289ad94f1bf785bc9d2e08e468e7ef")!
         let request = AF.request(url, method: .get)
         
         request.responseJSON { response in

@@ -81,13 +81,24 @@ class MovieRecommendTableHeaderView: UITableViewHeaderFooterView {
     }
     
     func configure(movieInfo: Movie) {
-        let string = "https://image.tmdb.org/t/p/w500/\(movieInfo.posterPath)"
+        guard let moviePosterPath = movieInfo.posterPath else {
+            return
+        }
+        let string = "https://image.tmdb.org/t/p/w500/\(moviePosterPath)"
         let url = URL(string: string)!
         headerImage.kf.setImage(with: url)
         headerBackgroundImage.kf.setImage(with: url)
         
-        titleLabel.text = movieInfo.title
+        if movieInfo.title != nil {
+           titleLabel.text = movieInfo.title
+        } else {
+            titleLabel.text = "UNKNOWN"
+        }
         
-        overviewLabel.text = movieInfo.overview
+        if movieInfo.overview != nil {
+            overviewLabel.text = movieInfo.overview
+        } else {
+            overviewLabel.text = ""
+        }
     }
 }
