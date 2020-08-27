@@ -9,10 +9,11 @@
 import UIKit
 import SnapKit
 import Alamofire
+import Toast_Swift
 
 class MovieRecommendViewController: UIViewController {
     private var movieTableView: UITableView = UITableView(frame: CGRect(), style: .grouped)
-    private let dismissButton = UIButton(type: .close)
+    private let loadingIndicator = UIActivityIndicatorView()
     
     private var movieData: [Movie] = []
     private var prevMovieData: [Movie] = []
@@ -30,7 +31,6 @@ class MovieRecommendViewController: UIViewController {
         view.backgroundColor = .black
         
         view.addSubview(movieTableView)
-        view.addSubview(dismissButton)
         
         movieTableView.backgroundColor = .black
         movieTableView.register(MovieRecommendTableViewCell.self, forCellReuseIdentifier: "MovieRecommendTableViewCell")
@@ -40,30 +40,39 @@ class MovieRecommendViewController: UIViewController {
             make.top.equalToSuperview()
         }
         
-        dismissButton.addTarget(self, action: #selector(didTapDismissButton), for: .touchUpInside)
-        dismissButton.snp.makeConstraints{ make in
-            make.trailing.equalToSuperview().inset(10)
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(10)
+        loadingIndicator.style = .large
+        loadingIndicator.color = .gray
+        view.addSubview(loadingIndicator)
+        loadingIndicator.snp.makeConstraints { maker in
+             maker.center.equalToSuperview()
         }
     }
     
     func fetchSimilarMovieInfo(movieInfo: Movie) {
+        loadingIndicator.startAnimating()
+        
         let url = URL(string: "https://api.themoviedb.org/3/movie/\(movieInfo.id)/similar?api_key=b2289ad94f1bf785bc9d2e08e468e7ef")!
         let request = AF.request(url, method: .get)
         
-        request.responseJSON { (jsonData) in
-            let movieResponse = try! JSONDecoder().decode(MovieResponse.self, from: jsonData.data!)
+        request.responseJSON { response in
+            self.loadingIndicator.stopAnimating()
             
-            self.movieData = movieResponse.results
+            guard let data = response.data else {
+                self.view.makeToast("네트워크 에러")
+                return
+            }
             
-            self.movieTableView.reloadData()
+            do {
+               let jsonData = try JSONDecoder().decode(MovieResponse.self, from: data)
+                            
+               self.movieData = jsonData.results
+               self.movieTableView.reloadData()
+            } catch {
+                self.view.makeToast("디코딩 에러")
+            }
         }
         
         prevMovieData.append(movieInfo)
-    }
-    
-    @objc func didTapDismissButton() {
-        dismiss(animated: true, completion: nil)
     }
 }
 
