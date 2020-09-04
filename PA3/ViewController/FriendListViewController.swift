@@ -10,41 +10,43 @@ import UIKit
 import SnapKit
 
 class FriendListViewController : UIViewController {
-    var friendTableView: UITableView = UITableView()
-    let friendHeaderLabel = UILabel()
-    let mailViewButton = UIButton()
+    private var friendTableView: UITableView = UITableView()
+    private let mailViewButton = UIButton()
+    private let friendHeaderLabel = UILabel()
     
     var testData: [UserInfo] = UserInfo.friendInfo
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        friendTableView.delegate = self
         friendTableView.dataSource = self
         
         setUp()
     }
     
     private func setUp(){
+        view.addSubview(friendHeaderLabel)
+        view.addSubview(mailViewButton)
+        view.addSubview(friendTableView)
+        
         view.backgroundColor = .white
         
-        view.addSubview(friendHeaderLabel)
         friendHeaderLabel.text = "친구"
-        friendHeaderLabel.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        friendHeaderLabel.font = UIFont.defaultHeaderBold
         friendHeaderLabel.snp.makeConstraints{ make in
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).inset(20)
             make.top.equalToSuperview().inset(70)
         }
         
-        view.addSubview(mailViewButton)
         mailViewButton.addTarget(self, action: #selector(didTapMailButton), for: .touchUpInside)
         mailViewButton.setTitle("✉️", for: .normal)
-        mailViewButton.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        mailViewButton.titleLabel?.font = UIFont.defaultHeaderFont
         mailViewButton.snp.makeConstraints{ make in
             make.trailing.equalToSuperview().inset(10)
             make.top.equalToSuperview().inset(70)
         }
         
-        view.addSubview(friendTableView)
         friendTableView.register(FriendProfileTableViewCell.self, forCellReuseIdentifier: "FriendProfileTableViewCell")
         friendTableView.snp.makeConstraints{ make in
             make.leading.bottom.trailing.equalToSuperview()
@@ -75,10 +77,15 @@ extension FriendListViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // tableView에 re
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendProfileTableViewCell") as! FriendProfileTableViewCell
         cell.configure(userInfo: testData[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ProfileViewController()
+        vc.setProfile(userInfo: testData[indexPath.row])
+        present(vc, animated: true)
     }
 }

@@ -11,8 +11,8 @@ import SnapKit
 
 class MailListViewController : UIViewController {
     var mailTableView: UITableView = UITableView()
-    let mailHeaderLabel = UILabel()
     let friendListButton = UIButton()
+    let mailHeaderLabel = UILabel()
     
     var mailViewDismiss: ((String) -> Void)?
     
@@ -26,7 +26,7 @@ class MailListViewController : UIViewController {
         setUp()
     }
     
-    func setUp(){
+    private func setUp(){
         view.addSubview(mailHeaderLabel)
         view.addSubview(friendListButton)
         view.addSubview(mailTableView)
@@ -34,7 +34,7 @@ class MailListViewController : UIViewController {
         view.backgroundColor = .white
         
         mailHeaderLabel.text = "메일함"
-        mailHeaderLabel.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        mailHeaderLabel.font = UIFont.defaultHeaderBold
         mailHeaderLabel.snp.makeConstraints{ make in
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).inset(20)
             make.top.equalToSuperview().inset(70)
@@ -42,7 +42,7 @@ class MailListViewController : UIViewController {
         
         friendListButton.addTarget(self, action: #selector(didTapFriendButton), for: .touchUpInside)
         friendListButton.setTitle("👤", for: .normal)
-        friendListButton.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        friendListButton.titleLabel?.font = UIFont.defaultHeaderFont
         friendListButton.snp.makeConstraints{ make in
             make.trailing.equalToSuperview().inset(10)
             make.top.equalToSuperview().inset(70)

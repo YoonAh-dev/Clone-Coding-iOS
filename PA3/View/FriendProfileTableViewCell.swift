@@ -42,9 +42,9 @@ class FriendProfileTableViewCell : UITableViewCell {
             make.size.equalTo(40)
         }
         
-        userNameLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 16)
+        userNameLabel.font = UIFont.defaultXLargeFont
         
-        statusMessageLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 14)
+        statusMessageLabel.font = UIFont.defaultLargeFont
         statusMessageLabel.textColor = UIColor.black.withAlphaComponent(0.5)
         
         stackView.axis = .vertical
@@ -61,7 +61,7 @@ class FriendProfileTableViewCell : UITableViewCell {
         musicButton.setTitleColor(UIColor.black.withAlphaComponent(0.5), for: .normal)
         musicButton.layer.borderColor = UIColor.green.cgColor
         musicButton.layer.borderWidth = 1
-        musicButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 13)
+        musicButton.titleLabel?.font = UIFont.defaultNormalFont
         musicButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 8, bottom: 5, right: 8)
         musicButton.setContentHuggingPriority(.required, for: .horizontal)
         musicButton.snp.makeConstraints{ make in
