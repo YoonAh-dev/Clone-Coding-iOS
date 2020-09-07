@@ -18,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         
         let movieVC = MovieViewController()
-        movieVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+        movieVC.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 0)
 
         let naviVC = UINavigationController()
         naviVC.viewControllers = [movieVC]
-        naviVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+        naviVC.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 0)
         
         let movieSearchVC = MovieSearchViewController()
         movieSearchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
@@ -33,9 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let friendListVC = FriendListViewController()
         friendListVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
+        
+        let loginVC = ViewController()
+        loginVC.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
 
         let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([naviVC, naviSearchVC, friendListVC], animated: true)
+        tabBarController.setViewControllers([naviVC, naviSearchVC, friendListVC, loginVC], animated: true)
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
